@@ -1,0 +1,67 @@
+[gd_scene load_steps=12 format=3 uid="uid://051eydkuulm5"]
+
+[ext_resource type="Script" path="res://scripts/player.gd" id="1_k6h7y"]
+[ext_resource type="Texture2D" uid="uid://b423llltikggk" path="res://PNG/new_image_texture1.png" id="2_whdrc"]
+[ext_resource type="Texture2D" uid="uid://dp2jow6fpwfok" path="res://PNG/new_image_texture2.png" id="3_i6ul3"]
+[ext_resource type="Texture2D" uid="uid://rcrcascuc28v" path="res://PNG/new_image_texture3.png" id="4_opirb"]
+[ext_resource type="Texture2D" uid="uid://kdokecasd12l" path="res://PNG/new_image_texture4.png" id="5_0te1n"]
+[ext_resource type="Texture2D" uid="uid://ci0p8is1e0vw2" path="res://PNG/new_image_texture5.png" id="6_6dii0"]
+[ext_resource type="Texture2D" uid="uid://becjpxhjpgtw" path="res://PNG/new_image_texture.png" id="7_0r0bi"]
+[ext_resource type="Texture2D" uid="uid://b68mcrhtex6ux" path="res://PNG/new_image_texture7.png" id="8_l4025"]
+[ext_resource type="Texture2D" uid="uid://dhqp0bgicynqt" path="res://PNG/new_image_texture6.png" id="9_hi8e5"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_eap46"]
+radius = 1.0
+height = 4.0
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_xw4de"]
+radius = 1.0
+height = 4.0
+
+[node name="Player" type="CharacterBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.834491, 0)
+script = ExtResource("1_k6h7y")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("CapsuleShape3D_eap46")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("CapsuleMesh_xw4de")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.36324, 0)
+
+[node name="RayCast3D" type="RayCast3D" parent="Camera3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.00561643, 0)
+target_position = Vector3(0, 0, -6.8)
+
+[node name="Hot bar" type="ItemList" parent="."]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -352.0
+offset_top = -92.0
+offset_right = 353.0
+offset_bottom = -15.0
+grow_horizontal = 2
+grow_vertical = 0
+item_count = 8
+max_columns = 8
+item_0/text = "1"
+item_0/icon = ExtResource("2_whdrc")
+item_1/text = "2"
+item_1/icon = ExtResource("3_i6ul3")
+item_2/text = "3"
+item_2/icon = ExtResource("4_opirb")
+item_3/text = "4"
+item_3/icon = ExtResource("5_0te1n")
+item_4/text = "5"
+item_4/icon = ExtResource("6_6dii0")
+item_5/text = "6"
+item_5/icon = ExtResource("7_0r0bi")
+item_6/text = "7"
+item_6/icon = ExtResource("8_l4025")
+item_7/text = "8"
+item_7/icon = ExtResource("9_hi8e5")
